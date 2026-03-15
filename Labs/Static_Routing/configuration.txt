@@ -1,0 +1,123 @@
+Commands for Router Configuration:-
+
+Router R1:
+
+-- to configure the first gateway for 10.0.0.0 network
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+exit
+
+-- to configure the second gateway for 20.0.0.0 network
+
+interface fastethernet 0/1
+ip address 20.0.0.1 255.0.0.0
+no shutdown
+exit
+exit 
+
+-- to view the interfaces
+
+show ip interface brief
+
+
+Router R2:
+
+-- to configure the first gateway for 20.0.0.0 network
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 20.0.0.2 255.0.0.0
+no shutdown
+exit
+
+-- to configure the second gateway for 30.0.0.0 network
+
+interface fastethernet 0/1
+ip address 30.0.0.1 255.0.0.0
+no shutdown
+exit
+exit 
+
+-- to view the interfaces
+
+show ip interface brief
+
+Router R3:
+
+-- to configure the first gateway for 30.0.0.0 network
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 30.0.0.2 255.0.0.0
+no shutdown
+exit
+
+-- to configure the second gateway for 40.0.0.0 network
+
+interface fastethernet 0/1
+ip address 40.0.0.1 255.0.0.0
+no shutdown
+exit
+exit 
+
+-- to view the interfaces
+
+show ip interface brief
+
+
+
+
+Commands for Static Routing:-
+
+Router R1:
+
+-- to add a static route for 40.0.0.0 network
+
+enable
+configure terminal
+ip route 40.0.0.0 255.0.0.0 20.0.0.2
+exit
+
+-- to view the routes
+
+show ip route
+
+Router R2:
+
+-- to add a static route for 40.0.0.0 network
+
+enable
+configure terminal
+ip route 40.0.0.0 255.0.0.0 30.0.0.2
+exit
+
+-- to add a static route for 10.0.0.0 network
+
+enable
+configure terminal
+ip route 10.0.0.0 255.0.0.0 20.0.0.1
+exit
+exit
+
+-- to view the routes
+
+show ip route
+
+Router R3:
+
+-- to add a static route for 10.0.0.0 network
+
+enable
+configure terminal
+ip route 10.0.0.0 255.0.0.0 30.0.0.1
+exit
+
+-- to view the routes
+
+show ip route
