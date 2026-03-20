@@ -1,0 +1,51 @@
+Commands for Router Configuration:-
+
+-- to configure the first gateway for 10.0.0.0 network
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+exit
+
+-- to configure the second gateway for 172.16.0.0 network
+
+interface fastethernet 0/1
+ip address 172.16.0.1 255.0.0.0
+no shutdown
+exit
+exit 
+
+-- to view the interfaces
+
+show ip interface brief
+
+-- to add DHCP for 10.0.0.0 network
+
+enable
+configure terminal
+ip dhcp excluded-address 10.0.0.1 10.0.0.20
+ip dhcp pool HR
+network 10.0.0.0 255.0.0.0
+default-router 10.0.0.1
+dns-server 8.8.8.8
+exit
+
+-- to add DHCP for 172.16.0.0 network
+
+ip dhcp excluded-address 172.16.0.1 172.16.0.20
+ip dhcp pool HR
+network 172.16.0.0 255.0.0.0
+default-router 172.16.0.1
+dns-server 8.8.8.8
+exit
+exit
+
+-- to view the DHCP Pool
+
+show ip dhcp pool
+
+-- to view the IP's assigned to the Devices
+
+show ip dhcp binding
