@@ -1,0 +1,207 @@
+Commands for Router Configuration:-
+
+Router 1:
+
+-- to configure the first gateway for 10.0.0.0 network
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+exit
+
+-- to configure the second gateway for 20.0.0.0 network
+
+interface fastethernet 0/1
+ip address 20.0.0.1 255.0.0.0
+no shutdown
+exit
+exit 
+
+-- to view the interfaces
+
+show ip interface brief
+
+Router 2:
+
+-- to configure the first gateway for 192.168.1.0 network
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+
+-- to configure the second gateway for 30.0.0.0 network
+
+interface fastethernet 0/1
+ip address 30.0.0.1 255.0.0.0
+no shutdown
+exit
+exit 
+
+-- to view the interfaces
+
+show ip interface brief
+
+Router 3:
+
+-- to configure the first gateway for 172.16.0.0 network
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 172.168.1.1 255.255.0.0
+no shutdown
+exit
+
+-- to configure the second gateway for 40.0.0.0 network
+
+interface fastethernet 0/1
+ip address 40.0.0.1 255.0.0.0
+no shutdown
+exit
+exit 
+
+-- to view the interfaces
+
+show ip interface brief
+
+
+Router 4:
+
+-- to configure the first gateway for 20.0.0.0 network
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 20.0.0.2 255.0.0.0
+no shutdown
+exit
+
+-- to configure the second gateway for 30.0.0.0 network
+
+interface fastethernet 0/1
+ip address 30.0.0.2 255.0.0.0
+no shutdown
+exit
+
+-- to configure the third gateway for 40.0.0.0 network
+
+interface ethernet 1/0
+ip address 40.0.0.2 255.0.0.0
+no shutdown
+exit
+exit
+
+-- to view the interfaces
+
+show ip interface brief
+
+
+Commands for Adding Routing:-
+
+Router 1:
+
+-- to add default route for 10.0.0.0 network
+
+enable
+configure terminal
+ip route 0.0.0.0 0.0.0.0 20.0.0.2
+exit
+
+-- to view the route
+
+show ip route
+
+Router 2:
+
+-- to add default route for 192.168.1.0 network
+
+enable
+configure terminal
+ip route 0.0.0.0 0.0.0.0 30.0.0.2
+exit
+
+-- to view the route
+
+show ip route
+
+Router 3:
+
+-- to add default route for 172.16.0.0 network
+
+enable
+configure terminal
+ip route 0.0.0.0 0.0.0.0 40.0.0.2
+exit
+
+-- to view the route
+
+show ip route
+
+
+Commands for Static Routing:-
+
+Router 4:
+
+-- to add a static route for 10.0.0.0 network
+
+enable
+configure terminal
+ip route 10.0.0.0 255.0.0.0 20.0.0.1
+
+-- to add static route for 192.168.1.0 network
+
+ip route 192.168.1.0 255.255.255.0 30.0.0.1
+
+
+-- to add default route for 172.16.0.0 network
+
+ip route 172.16.0.0 255.255.0.0 40.0.0.1
+
+-- to view the route
+
+show ip route
+
+
+Commands for DHCP Configuration:-
+
+Router 4:
+
+-- to add DHCP for 10.0.0.0 network
+
+enable
+configure terminal
+ip dhcp pool Chennai
+network 10.0.0.0 255.0.0.0
+default-router 10.0.0.1
+dns-server 172.16.0.10
+exit
+
+-- to add DHCP for 172.16.0.0 network
+
+ip dhcp pool Banglore
+network 172.16.0.0 255.255.0.0
+default-router 172.16.0.1
+dns-server 172.16.0.10
+exit
+
+-- to add DHCP for 192.168.1.0 network
+
+ip dhcp pool Mumbai
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.1
+dns-server 172.16.0.10
+exit
+exit
+
+-- to view the DHCP Pool
+
+show ip dhcp pool
+
+-- to view the IP's assigned to the Devices
+
+show ip dhcp binding
