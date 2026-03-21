@@ -1,0 +1,69 @@
+Commands for Router Configuration:-
+
+Router:
+
+-- to configure the first gateway for 10.0.0.0 network
+
+enable
+configure terminal
+interface fastEthernet 0/0
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+exit
+
+-- to add DHCP for 10.0.0.0 network
+
+ip dhcp pool Network
+network 10.0.0.0 255.0.0.0
+default-router 10.0.0.1
+dns-server 8.8.8.8
+exit
+exit
+
+Intruder:
+
+-- to configure the first gateway for 20.0.0.0 network
+
+enable
+configure terminal
+interface fastEthernet 0/0
+ip address 20.0.0.1 255.0.0.0
+no shutdown
+exit
+
+-- to add DHCP for 20.0.0.0 network
+
+ip dhcp pool Intruder
+network 20.0.0.0 255.0.0.0
+default-router 20.0.0.1
+dns-server 8.8.8.8
+exit
+exit
+
+-- to view the interfaces
+
+show ip interface brief
+
+-- to view the DHCP Pool
+
+show ip dhcp pool
+
+
+Commands for Switch Configuration:-
+
+Switch:
+
+-- to configure Snooping
+
+enable
+configure terminal
+ip dhcp snooping
+ip dhcp snooping vlan 1
+no ip dhcp snooping information option
+
+-- to make router connected port as trusted port
+
+interface fastEthernet 0/1
+ip dhcp snooping trust
+exit
+exit
