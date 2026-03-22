@@ -1,0 +1,31 @@
+Commands for VLan Configuration:-
+
+Switch:
+
+-- Vlan Configuration
+
+enable 
+configure terminal
+
+vlan 10
+name HR
+exit
+
+vlan 20
+name Sales
+exit
+
+-- Vlan Access Configuration
+
+interface range fastEthernet 0/1 -2
+switchport access Vlan 10
+exit
+
+interface range fastEthernet 0/3 -4
+switchport access Vlan 20
+exit
+exit
+
+-- To view Vlan
+
+show Vlan brief
