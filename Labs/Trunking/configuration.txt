@@ -1,0 +1,80 @@
+
+Switch 1:-
+
+-- Vlan Configuration
+
+enable 
+configure terminal
+
+vlan 10
+name HR
+exit
+
+vlan 20
+name Sales
+exit
+
+-- Vlan Access Configuration
+
+interface range fastEthernet 0/1 -2
+switchport access Vlan 10
+exit
+
+interface range fastEthernet 0/3 -4
+switchport access Vlan 20
+exit
+
+-- Trunking Configuration
+
+interface fastEthernet 0/5
+switchport mode trunk
+exit
+exit
+
+-- To view Vlan
+
+show Vlan brief
+
+-- To view Trunk Port
+
+show interface trunk
+
+Switch 2:-
+
+-- Vlan Configuration
+
+enable 
+configure terminal
+
+vlan 10
+name HR
+exit
+
+vlan 20
+name Sales
+exit
+
+-- Vlan Access Configuration
+
+interface range fastEthernet 0/1 -2
+switchport access Vlan 10
+exit
+
+interface range fastEthernet 0/3 -4
+switchport access Vlan 20
+exit
+
+-- Trunking Configuration
+
+interface fastEthernet 0/5
+switchport mode trunk
+exit
+exit
+
+-- To view Vlan
+
+show Vlan brief
+
+-- To view Trunk Port
+
+show interface trunk
