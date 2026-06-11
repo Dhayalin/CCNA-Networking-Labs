@@ -1,0 +1,32 @@
+VLAN Configuration:-
+
+Switch:
+
+-- to configure the VLAN for HR department
+
+enable
+configure terminal
+vlan 10
+name HR
+exit
+
+-- to configure the VLAN for Sales department
+
+vlan 20
+name Sales
+exit
+
+-- to configure access ports to the VLAN's
+
+interface range fastEthernet 0/1 -2
+switchport access vlan 10
+exit
+
+interfacer range fastEthernet 0/3 -4
+switchport access vlan 20
+exit
+exit
+
+-- to view the VLAN's
+
+show vlan brief
